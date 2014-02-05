@@ -11,7 +11,6 @@
 @interface VineLine()
 {
     CGPoint firstPoint;
-    CGPoint lastPoint;
     CGPoint lastBranchPosition;
 }
 
@@ -40,38 +39,26 @@
 {
     [super addLineToPoint:point];
     
-    float distanceFromCurrentPointOnVineToLastBranch;
+    float distanceFromPrevious;
     
     if([_branchLines count] == 0)
     {
-        distanceFromCurrentPointOnVineToLastBranch = hypotf(point.x - firstPoint.x, point.y - firstPoint.y);
+        distanceFromPrevious = hypotf(point.x - firstPoint.x, point.y - firstPoint.y);
     }
     else
     {
-        distanceFromCurrentPointOnVineToLastBranch = hypotf(point.x - lastBranchPosition.x, point.y - lastBranchPosition.y);
+        distanceFromPrevious = hypotf(point.x - lastBranchPosition.x, point.y - lastBranchPosition.y);
     }
     
-    if(distanceFromCurrentPointOnVineToLastBranch > _minBranchSeperation)
+    if(distanceFromPrevious > _minBranchSeperation)
     {
-        VineBranch *newBranch = [[VineBranch alloc] init];
+        VineBranch *newBranch = [[VineBranch alloc] initWithRandomPathFromPoint:point maxLength:_maxBranchLength leafSize:_leafSize];
         newBranch.lineWidth = self.lineWidth / 2.0;
-        [newBranch moveToPoint:point];
-        
-        
-        CGPoint branchEnd = CGPointMake(point.x + arc4random_uniform(_maxBranchLength * 2) - _maxBranchLength,point.y + arc4random_uniform(_maxBranchLength * 2) - _maxBranchLength);
-        CGPoint brachControl1 = CGPointMake(branchEnd.x + arc4random_uniform(_maxBranchLength) - _maxBranchLength / 2,branchEnd.y + arc4random_uniform(_maxBranchLength) - _maxBranchLength / 2);
-        CGPoint branchControl2 = CGPointMake(branchEnd.x + arc4random_uniform(_maxBranchLength / 2) - _maxBranchLength / 4,branchEnd.y + arc4random_uniform(_maxBranchLength / 2) - _maxBranchLength / 4);
-        
-        [newBranch addCurveToPoint:branchEnd controlPoint1:brachControl1 controlPoint2:branchControl2];
-        
-        newBranch.endPoint = branchEnd;
         
         [_branchLines addObject:newBranch];
         [_delegate vineLineDidCreateBranch:newBranch];
         lastBranchPosition = point;
     }
-    
-    lastPoint = point;
 }
 
 @end

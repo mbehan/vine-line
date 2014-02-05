@@ -49,6 +49,7 @@
         newVineLine.lineWidth = _vineWidth;
         newVineLine.minBranchSeperation = _branchSeperation;
         newVineLine.maxBranchLength = _branchLength;
+        newVineLine.leafSize = _leafSize;
         [newVineLine moveToPoint:[gestureRecognizer locationInView:self]];
         
         [vineLines addObject:newVineLine];
@@ -82,28 +83,6 @@
     branchGrowAnimation.fromValue = [NSNumber numberWithFloat:0.0];
     branchGrowAnimation.toValue = [NSNumber numberWithFloat:1.0];
     [branchShape addAnimation:branchGrowAnimation forKey:@"strokeEnd"];
-    
-    //add leaf after brach animation
-    
-    [self performBlock:^{
-        UIBezierPath* leafPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(branchPath.endPoint.x - _leafSize/2.0, branchPath.endPoint.y - _leafSize/2.0, _leafSize, _leafSize)];
-        
-        CAShapeLayer *leafShape = [CAShapeLayer layer];
-        leafShape.path = leafPath.CGPath;
-        leafShape.fillColor = vineColor.CGColor;
-        leafShape.strokeColor = [UIColor clearColor].CGColor;
-        
-        [self.layer addSublayer:leafShape];
-        
-        
-        CABasicAnimation *leafAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        leafAnimation.duration = 0.3;
-        leafAnimation.fromValue = [NSNumber numberWithFloat:0.0];
-        leafAnimation.toValue = [NSNumber numberWithFloat:1.0];
-        [leafShape addAnimation:leafAnimation forKey:@"opacity"];
-        
-    } afterDelay:branchGrowAnimation.duration];
-    
 }
 
 

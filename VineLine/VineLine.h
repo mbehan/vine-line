@@ -21,6 +21,7 @@
 @property(nonatomic, retain, readonly)NSMutableArray *branchLines;
 @property(nonatomic)float minBranchSeperation;
 @property(nonatomic)float maxBranchLength;
+@property(nonatomic)float leafSize;
 
 @end
 

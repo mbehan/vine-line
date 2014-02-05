@@ -10,6 +10,6 @@
 
 @interface VineBranch : UIBezierPath
 
-@property(nonatomic)CGPoint endPoint;
+-(id)initWithRandomPathFromPoint:(CGPoint)startPoint maxLength:(float)maxLength leafSize:(float)leafSize;
 
 @end
