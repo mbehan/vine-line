@@ -10,9 +10,11 @@ import UIKit
 
 class DrawingView: UIView {
 
-    let lineWidth = CGFloat(1.0)
-    var activeLines = [UITouch: UIBezierPath]()
-    var lines = [UIBezierPath]()
+    private let lineWidth = CGFloat(1.0)
+    private var activeLines = [UITouch: UIBezierPath]()
+    private var lines = [UIBezierPath]()
+    
+    // MARK:- Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +29,9 @@ class DrawingView: UIView {
     func setup(){
         isMultipleTouchEnabled = true
     }
-
+    
+    // MARK:- Touch handling
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isMultipleTouchEnabled = true
         for touch in touches {
@@ -56,13 +60,15 @@ class DrawingView: UIView {
         }
         self.setNeedsDisplay()
     }
-
+    
+    // MARK:- Drawing
+    
     override func draw(_ rect: CGRect) {
         for line in activeLines.values {
             line.stroke()
         }
 
-        for line in lines{
+        for line in lines {
             line.stroke()
         }
     }
