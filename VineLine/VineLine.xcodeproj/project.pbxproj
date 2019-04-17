@@ -13,7 +13,7 @@
 		A5A88193223E2A1D0042303D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A88191223E2A1D0042303D /* Main.storyboard */; };
 		A5A88195223E2A1E0042303D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A88194223E2A1E0042303D /* Assets.xcassets */; };
 		A5A88198223E2A1E0042303D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A88196223E2A1E0042303D /* LaunchScreen.storyboard */; };
-		A5A881A0223E2CD70042303D /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8819F223E2CD70042303D /* DrawingView.swift */; };
+		A5A881A0223E2CD70042303D /* MultiTouchDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8819F223E2CD70042303D /* MultiTouchDrawingView.swift */; };
 		A5EA4E03224A680C00E7B462 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA4E02224A680C00E7B462 /* Branch.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		A5A88194223E2A1E0042303D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5A88197223E2A1E0042303D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5A88199223E2A1E0042303D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5A8819F223E2CD70042303D /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		A5A8819F223E2CD70042303D /* MultiTouchDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTouchDrawingView.swift; sourceTree = "<group>"; };
 		A5EA4E02224A680C00E7B462 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +62,7 @@
 			children = (
 				A5A8818D223E2A1D0042303D /* AppDelegate.swift */,
 				A5A8818F223E2A1D0042303D /* ViewController.swift */,
-				A5A8819F223E2CD70042303D /* DrawingView.swift */,
+				A5A8819F223E2CD70042303D /* MultiTouchDrawingView.swift */,
 				A53C000122675AF10017B23D /* UIColor+random.swift */,
 				A5EA4E02224A680C00E7B462 /* Branch.swift */,
 				A5A88191223E2A1D0042303D /* Main.storyboard */,
@@ -144,7 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A881A0223E2CD70042303D /* DrawingView.swift in Sources */,
+				A5A881A0223E2CD70042303D /* MultiTouchDrawingView.swift in Sources */,
 				A53C000222675AF10017B23D /* UIColor+random.swift in Sources */,
 				A5EA4E03224A680C00E7B462 /* Branch.swift in Sources */,
 				A5A88190223E2A1D0042303D /* ViewController.swift in Sources */,
