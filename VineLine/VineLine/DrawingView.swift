@@ -9,10 +9,12 @@
 import UIKit
 
 class DrawingView: UIView {
+    
+    typealias Stroke = (path: UIBezierPath, color: UIColor)
 
     private let lineWidth = CGFloat(1.0)
-    private var activeLines = [UITouch: UIBezierPath]()
-    private var lines = [UIBezierPath]()
+    private var activeStrokes = [UITouch: Stroke]()
+    private var strokes = [Stroke]()
     
     // MARK:- Init
 
@@ -36,27 +38,27 @@ class DrawingView: UIView {
         self.isMultipleTouchEnabled = true
         for touch in touches {
             let location = touch.location(in: self)
-            let newStroke = UIBezierPath()
-            newStroke.lineCapStyle = .round
-            newStroke.lineWidth = lineWidth
-            newStroke.move(to: location)
-            newStroke.addLine(to: location)
-            activeLines[touch] = newStroke
+            let newStroke = (path: UIBezierPath(), color: UIColor.random)
+            newStroke.path.lineCapStyle = .round
+            newStroke.path.lineWidth = lineWidth
+            newStroke.path.move(to: location)
+            newStroke.path.addLine(to: location)
+            activeStrokes[touch] = newStroke
         }
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            activeLines[touch]!.addLine(to: touch.location(in: self))
+            activeStrokes[touch]!.path.addLine(to: touch.location(in: self))
         }
         self.setNeedsDisplay()
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let line = activeLines.removeValue(forKey: touch)!
-            line.move(to: touch.location(in: self))
-            lines.append(line)
+            let line = activeStrokes.removeValue(forKey: touch)!
+            line.path.move(to: touch.location(in: self))
+            strokes.append(line)
         }
         self.setNeedsDisplay()
     }
@@ -64,12 +66,14 @@ class DrawingView: UIView {
     // MARK:- Drawing
     
     override func draw(_ rect: CGRect) {
-        for line in activeLines.values {
-            line.stroke()
+        for line in activeStrokes.values {
+            line.color.setStroke()
+            line.path.stroke()
         }
 
-        for line in lines {
-            line.stroke()
+        for line in strokes {
+            line.color.setStroke()
+            line.path.stroke()
         }
     }
 }

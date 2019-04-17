@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53C000222675AF10017B23D /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53C000122675AF10017B23D /* UIColor+random.swift */; };
 		A5A8818E223E2A1D0042303D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8818D223E2A1D0042303D /* AppDelegate.swift */; };
 		A5A88190223E2A1D0042303D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A8818F223E2A1D0042303D /* ViewController.swift */; };
 		A5A88193223E2A1D0042303D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A88191223E2A1D0042303D /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A53C000122675AF10017B23D /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		A5A8818A223E2A1D0042303D /* VineLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VineLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A8818D223E2A1D0042303D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5A8818F223E2A1D0042303D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				A5A8818D223E2A1D0042303D /* AppDelegate.swift */,
 				A5A8818F223E2A1D0042303D /* ViewController.swift */,
 				A5A8819F223E2CD70042303D /* DrawingView.swift */,
+				A53C000122675AF10017B23D /* UIColor+random.swift */,
 				A5EA4E02224A680C00E7B462 /* Branch.swift */,
 				A5A88191223E2A1D0042303D /* Main.storyboard */,
 				A5A88194223E2A1E0042303D /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5A881A0223E2CD70042303D /* DrawingView.swift in Sources */,
+				A53C000222675AF10017B23D /* UIColor+random.swift in Sources */,
 				A5EA4E03224A680C00E7B462 /* Branch.swift in Sources */,
 				A5A88190223E2A1D0042303D /* ViewController.swift in Sources */,
 				A5A8818E223E2A1D0042303D /* AppDelegate.swift in Sources */,
@@ -291,6 +295,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHN3X3E6BY;
 				INFOPLIST_FILE = VineLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UHN3X3E6BY;
 				INFOPLIST_FILE = VineLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
