@@ -12,7 +12,7 @@ class DrawingView: UIView {
     
     typealias Stroke = (path: UIBezierPath, color: UIColor)
 
-    private let lineWidth = CGFloat(1.0)
+    private let lineWidth = CGFloat(5.0)
     private var activeStrokes = [UITouch: Stroke]()
     private var strokes = [Stroke]()
     
@@ -66,12 +66,12 @@ class DrawingView: UIView {
     // MARK:- Drawing
     
     override func draw(_ rect: CGRect) {
-        for line in activeStrokes.values {
+        for line in strokes {
             line.color.setStroke()
             line.path.stroke()
         }
-
-        for line in strokes {
+        
+        for line in activeStrokes.values {
             line.color.setStroke()
             line.path.stroke()
         }
