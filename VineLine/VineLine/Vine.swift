@@ -15,6 +15,7 @@ class Vine: UIBezierPath {
     var minBranchSeperation: Double
     weak var delegate: VineDelegate?
     var lines: [Branch]
+    var color: UIColor
 
     private var firstPoint: CGPoint!
     private var lastBranchPosition: CGPoint!
@@ -22,6 +23,7 @@ class Vine: UIBezierPath {
 
     override init(){
 
+        color = .green
         leafSize = 10.0
         maxBranchLength = 10.0
         minBranchSeperation = 10.0
@@ -52,7 +54,7 @@ class Vine: UIBezierPath {
         }
 
         if(distanceFromPrevious > minBranchSeperation) {
-            let newBranch = Branch(start: point, maxLength: CGFloat(maxBranchLength), leafSize: CGFloat(leafSize))
+            let newBranch = Branch(start: point, maxLength: CGFloat(maxBranchLength), leafSize: CGFloat(leafSize), color: color)
             newBranch.lineWidth = self.lineWidth / 2.0
 
             lines.append(newBranch)

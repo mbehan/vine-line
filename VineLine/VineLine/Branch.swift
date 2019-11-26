@@ -16,8 +16,13 @@ extension CGPoint {
 }
 
 class Branch: UIBezierPath {
+
+    var color: UIColor
     
-    init(start: CGPoint, maxLength: CGFloat, leafSize: CGFloat) {
+    init(start: CGPoint, maxLength: CGFloat, leafSize: CGFloat, color: UIColor) {
+
+        self.color = color
+
         super.init()
         
         move(to: start)
