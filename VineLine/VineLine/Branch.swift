@@ -38,6 +38,6 @@ class Branch: UIBezierPath {
     }
 }
 
-class Vine: UIBezierPath {
-    
+protocol VineDelegate: class {
+    func vineDidCreate(branch: Branch)
 }
