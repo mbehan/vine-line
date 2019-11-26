@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A521F00C22836E39000E27AF /* UIView+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521F00B22836E39000E27AF /* UIView+image.swift */; };
 		A5221EA7238D469E00DE27F5 /* Vine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5221EA6238D469E00DE27F5 /* Vine.swift */; };
 		A5221EA9238D495700DE27F5 /* VineLineDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5221EA8238D495700DE27F5 /* VineLineDrawingView.swift */; };
 		A53C000222675AF10017B23D /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53C000122675AF10017B23D /* UIColor+random.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A521F00B22836E39000E27AF /* UIView+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+image.swift"; sourceTree = "<group>"; };
 		A5221EA6238D469E00DE27F5 /* Vine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vine.swift; sourceTree = "<group>"; };
 		A5221EA8238D495700DE27F5 /* VineLineDrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VineLineDrawingView.swift; sourceTree = "<group>"; };
 		A53C000122675AF10017B23D /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
@@ -64,17 +62,16 @@
 		A5A8818C223E2A1D0042303D /* VineLine */ = {
 			isa = PBXGroup;
 			children = (
-				A5221EA8238D495700DE27F5 /* VineLineDrawingView.swift */,
 				A5A8818D223E2A1D0042303D /* AppDelegate.swift */,
 				A5A8818F223E2A1D0042303D /* ViewController.swift */,
-				A53C000122675AF10017B23D /* UIColor+random.swift */,
-				A5EA4E02224A680C00E7B462 /* Branch.swift */,
+				A5221EA8238D495700DE27F5 /* VineLineDrawingView.swift */,
 				A5221EA6238D469E00DE27F5 /* Vine.swift */,
+				A5EA4E02224A680C00E7B462 /* Branch.swift */,
+				A53C000122675AF10017B23D /* UIColor+random.swift */,
 				A5A88191223E2A1D0042303D /* Main.storyboard */,
-				A5A88194223E2A1E0042303D /* Assets.xcassets */,
 				A5A88196223E2A1E0042303D /* LaunchScreen.storyboard */,
+				A5A88194223E2A1E0042303D /* Assets.xcassets */,
 				A5A88199223E2A1E0042303D /* Info.plist */,
-				A521F00B22836E39000E27AF /* UIView+image.swift */,
 			);
 			path = VineLine;
 			sourceTree = "<group>";
@@ -155,7 +152,6 @@
 				A5EA4E03224A680C00E7B462 /* Branch.swift in Sources */,
 				A5221EA9238D495700DE27F5 /* VineLineDrawingView.swift in Sources */,
 				A5A88190223E2A1D0042303D /* ViewController.swift in Sources */,
-				A521F00C22836E39000E27AF /* UIView+image.swift in Sources */,
 				A5A8818E223E2A1D0042303D /* AppDelegate.swift in Sources */,
 				A5221EA7238D469E00DE27F5 /* Vine.swift in Sources */,
 			);

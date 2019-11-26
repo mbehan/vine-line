@@ -8,25 +8,7 @@
 
 import UIKit
 
-class VineLineDrawingView: UIView, VineDelegate {
-    func vineDidCreate(branch: Branch) {
-
-        let branchShape = CAShapeLayer()
-        branchShape.path = branch.cgPath
-        branchShape.fillColor = UIColor.clear.cgColor
-        branchShape.strokeColor = branch.color.cgColor
-        branchShape.lineWidth = branch.lineWidth
-
-        layer.addSublayer(branchShape)
-
-        let branchGrowAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        branchGrowAnimation.duration = 1.0
-        branchGrowAnimation.fromValue = 0.0
-        branchGrowAnimation.toValue = 1.0
-        branchShape.add(branchGrowAnimation, forKey: "strokeEnd")
-
-    }
-
+class VineLineDrawingView: UIView {
 
     private let lineWidth = CGFloat(5.0)
     private var activeStrokes = [UITouch: Vine]()
@@ -59,19 +41,26 @@ class VineLineDrawingView: UIView, VineDelegate {
         self.isMultipleTouchEnabled = true
         for touch in touches {
             let location = touch.location(in: self)
-            let newVine = Vine()
-            newVine.lineCapStyle = .round
-            newVine.lineWidth = lineWidth
-            newVine.move(to: location)
-            newVine.addLine(to: location)
+            let newVine = createVine(at: location)
             newVine.delegate = self
-            newVine.lineWidth = CGFloat(vineWidth)
-            newVine.minBranchSeperation = branchSeperation
-            newVine.maxBranchLength = branchLength
-            newVine.leafSize = leafSize
-            newVine.color = UIColor.random
             activeStrokes[touch] = newVine
         }
+    }
+
+    private func createVine(at location: CGPoint)->Vine {
+
+        let vine = Vine()
+        vine.lineCapStyle = .round
+        vine.lineWidth = lineWidth
+        vine.move(to: location)
+        vine.addLine(to: location)
+        vine.lineWidth = CGFloat(vineWidth)
+        vine.minBranchSeperation = branchSeperation
+        vine.maxBranchLength = branchLength
+        vine.leafSize = leafSize
+        vine.color = UIColor.random
+
+        return vine
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,5 +91,25 @@ class VineLineDrawingView: UIView, VineDelegate {
             line.color.setStroke()
             line.stroke()
         }
+    }
+}
+
+extension VineLineDrawingView: BranchingDelegate {
+
+    func vineDidCreate(branch: Branch) {
+
+        let branchShape = CAShapeLayer()
+        branchShape.path = branch.cgPath
+        branchShape.fillColor = UIColor.clear.cgColor
+        branchShape.strokeColor = branch.color.cgColor
+        branchShape.lineWidth = branch.lineWidth
+
+        layer.addSublayer(branchShape)
+
+        let branchGrowAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        branchGrowAnimation.duration = 1.0
+        branchGrowAnimation.fromValue = 0.0
+        branchGrowAnimation.toValue = 1.0
+        branchShape.add(branchGrowAnimation, forKey: "strokeEnd")
     }
 }

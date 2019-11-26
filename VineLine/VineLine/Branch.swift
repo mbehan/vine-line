@@ -8,16 +8,13 @@
 
 import UIKit
 
-extension CGPoint {
-    static func randomPoint(between point1: CGPoint, and point2: CGPoint) -> CGPoint {
-        return CGPoint(x: Double.random(in: Double(point1.x) ... Double(point2.x)),
-                       y: Double.random(in: Double(point1.y) ... Double(point2.y)))
-    }
+protocol BranchingDelegate: class {
+    func vineDidCreate(branch: Branch)
 }
 
 class Branch: UIBezierPath {
 
-    var color: UIColor
+    private(set) var color: UIColor
     
     init(start: CGPoint, maxLength: CGFloat, leafSize: CGFloat, color: UIColor) {
 
@@ -43,6 +40,9 @@ class Branch: UIBezierPath {
     }
 }
 
-protocol VineDelegate: class {
-    func vineDidCreate(branch: Branch)
+extension CGPoint {
+    static func randomPoint(between point1: CGPoint, and point2: CGPoint) -> CGPoint {
+        return CGPoint(x: Double.random(in: Double(point1.x) ... Double(point2.x)),
+                       y: Double.random(in: Double(point1.y) ... Double(point2.y)))
+    }
 }
